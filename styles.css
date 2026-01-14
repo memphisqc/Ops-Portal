@@ -1,0 +1,155 @@
+:root{
+  --bg:#0b1220;
+  --card:#121b33;
+  --text:#e8eefc;
+  --muted:#9fb0d8;
+  --border:rgba(255,255,255,.1);
+  --accent:#6ea8ff;
+  --radius:18px;
+}
+
+[data-theme="light"]{
+  --bg:#f4f6ff;
+  --card:#ffffff;
+  --text:#0b1220;
+  --muted:#4b5b82;
+  --border:rgba(0,0,0,.1);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+
+a{color:inherit;text-decoration:none}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+
+.topbar__inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.brand__mark{
+  background:linear-gradient(135deg,#6ea8ff,#7cf0c7);
+  color:#000;
+  padding:6px 10px;
+  border-radius:10px;
+  font-weight:900;
+}
+
+.brand__title{font-weight:900}
+.brand__sub{font-size:12px;color:var(--muted)}
+
+.nav{display:flex;gap:14px}
+.nav__link{color:var(--muted)}
+.nav__link:hover{color:var(--text)}
+
+.btn{
+  padding:8px 14px;
+  border-radius:12px;
+  border:none;
+  background:linear-gradient(135deg,#6ea8ff,#7cf0c7);
+  font-weight:700;
+  cursor:pointer;
+}
+.btn--ghost{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--text);
+}
+
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px;
+}
+
+.card{
+  background:var(--card);
+  padding:16px;
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+}
+
+.quick{
+  display:block;
+  padding:10px;
+  margin:6px 0;
+  border-radius:12px;
+  border:1px solid var(--border);
+}
+
+.section{margin-top:40px}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.list{
+  display:block;
+  padding:8px;
+  margin:6px 0;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+.toolbar{
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+input,select{
+  padding:8px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text);
+}
+
+.tile{
+  padding:20px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:var(--card);
+}
+
+.footer{
+  margin-top:40px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.pill{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  color:var(--muted);
+  margin-bottom:10px;
+}

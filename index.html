@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OPS Portal</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container topbar__inner">
+    <div class="brand">
+      <div class="brand__mark">OPS</div>
+      <div>
+        <div class="brand__title">Ops Portal</div>
+        <div class="brand__sub">Operations Dashboard</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="nav__link" href="#overview">Overview</a>
+      <a class="nav__link" href="#dashboard">Dashboard</a>
+      <a class="nav__link" href="#tools">Tools</a>
+      <a class="nav__link" href="#updates">Updates</a>
+    </nav>
+
+    <button class="btn btn--ghost" id="themeToggle">Toggle Theme</button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- OVERVIEW -->
+<section class="hero" id="overview">
+  <div>
+    <div class="pill">Operational Portal</div>
+    <h1 class="hero__title">Centralized Ops Portal</h1>
+    <p class="hero__desc">
+      A single, clean entry point for daily operations, dashboards, and tools.
+    </p>
+
+    <div class="hero__cta">
+      <a class="btn" href="#dashboard">Go to Dashboard</a>
+      <a class="btn btn--ghost" href="#tools">Browse Tools</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Quick Access</h3>
+    <a class="quick" href="#">📍 Market Lookup</a>
+    <a class="quick" href="#">🧾 Reports</a>
+    <a class="quick" href="#">🗺️ Network Map</a>
+    <a class="quick" href="#">✅ Daily Checklist</a>
+    <p class="muted">Last updated: <span id="lastUpdated">—</span></p>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="section" id="dashboard">
+  <h2>Dashboard</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Operational Links</h3>
+      <a class="list" href="#">Home</a>
+      <a class="list" href="#">Clearance Queue</a>
+      <a class="list" href="#">Exception Review</a>
+      <a class="list" href="#">Contact Roster</a>
+    </div>
+
+    <div class="card">
+      <h3>Dashboards</h3>
+      <a class="list" href="#">Weekly Summary</a>
+      <a class="list" href="#">Damage Prevention</a>
+      <a class="list" href="#">Network Overview</a>
+    </div>
+
+    <div class="card">
+      <h3>Forms</h3>
+      <a class="list" href="#">Pre-Trip</a>
+      <a class="list" href="#">Post-Trip</a>
+      <a class="list" href="#">Incident Report</a>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section" id="tools">
+  <h2>Tools</h2>
+
+  <div class="toolbar">
+    <input id="searchInput" placeholder="Search tools…" />
+    <select id="categorySelect">
+      <option value="all">All</option>
+      <option value="ops">Ops</option>
+      <option value="reports">Reports</option>
+      <option value="forms">Forms</option>
+    </select>
+  </div>
+
+  <div class="grid" id="tileGrid">
+    <div class="tile" data-category="ops">⚙️ Ops Tool</div>
+    <div class="tile" data-category="reports">📊 Report Hub</div>
+    <div class="tile" data-category="forms">📝 Submit Form</div>
+  </div>
+</section>
+
+<!-- UPDATES -->
+<section class="section" id="updates">
+  <h2>Updates</h2>
+  <div class="card">
+    <ul>
+      <li>Initial Ops Portal layout</li>
+      <li>Theme toggle (light / dark)</li>
+      <li>Search + category filtering</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="footer">
+  Ops Portal • Internal Operations Use
+</footer>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
