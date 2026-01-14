@@ -4,113 +4,227 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ops Portal</title>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-<!-- INTRO OVERLAY -->
-<div id="intro">
-  <img src="logo.png" alt="Ops Portal Launch" />
-</div>
-
 <header class="topbar">
   <div class="container topbar__inner">
+
+    <!-- LEFT BRAND -->
     <div class="brand">
-      <div class="brand__mark">
+      <a class="brand__mark" href="#overview" aria-label="Ops Portal Home">
         <img src="logo.png" alt="Ops Portal Logo">
-      </div>
+      </a>
+
       <div class="brand__text">
         <div class="brand__title">Ops Portal</div>
         <div class="brand__sub">Operations Dashboard</div>
       </div>
     </div>
 
-    <nav class="nav">
+    <!-- NAV -->
+    <nav class="nav" aria-label="Primary navigation">
       <a class="nav__link" href="#overview">Overview</a>
       <a class="nav__link" href="#dashboard">Dashboard</a>
       <a class="nav__link" href="#tools">Tools</a>
       <a class="nav__link" href="#updates">Updates</a>
     </nav>
 
-    <button class="btn btn--ghost" id="themeToggle">Toggle Theme</button>
+    <!-- ACTIONS -->
+    <div class="topbar__actions">
+      <button class="btn btn--ghost" id="themeToggle" type="button">Toggle Theme</button>
+    </div>
   </div>
 </header>
 
 <main class="container">
 
-<!-- OVERVIEW -->
-<section class="hero hero--logo-bg" id="overview">
-  <div>
-    <div class="pill">Operational Portal</div>
-    <h1 class="hero__title">Centralized Ops Portal</h1>
-    <p class="hero__desc">
-      A single, clean entry point for daily operations, dashboards, and tools.
-    </p>
+  <!-- HERO -->
+  <section class="hero hero--logo-bg" id="overview">
+    <div class="hero__left">
+      <div class="pill">Operational Portal</div>
 
-    <div class="hero__cta">
-      <a class="btn" href="#dashboard">Go to Dashboard</a>
-      <a class="btn btn--ghost" href="#tools">Browse Tools</a>
+      <h1 class="hero__title">Centralized Ops Portal</h1>
+      <p class="hero__desc">
+        A single, clean entry point for daily operations, dashboards, and tools.
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn" href="#dashboard">Go to Dashboard</a>
+        <a class="btn btn--ghost" href="#tools">Browse Tools</a>
+      </div>
     </div>
-  </div>
 
-  <div class="card card--glass">
-    <h3>Quick Access</h3>
-    <a class="quick" href="#">📍 Market Lookup</a>
-    <a class="quick" href="#">🧾 Reports</a>
-    <a class="quick" href="#">🗺️ Network Map</a>
-    <a class="quick" href="#">✅ Daily Checklist</a>
-    <p class="muted">Last updated <span id="lastUpdated">—</span></p>
-  </div>
-</section>
+    <div class="hero__right">
+      <div class="card card--glass">
+        <div class="card__header">
+          <div>
+            <div class="card__title">Quick Access</div>
+            <div class="card__sub">Shortcuts for daily use</div>
+          </div>
+          <span class="badge">Online</span>
+        </div>
 
-<!-- DASHBOARD -->
-<section class="section" id="dashboard">
-  <h2>Dashboard</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Operational Links</h3>
-      <a class="list__item" href="#">Clearance Queue</a>
-      <a class="list__item" href="#">Exception Review</a>
+        <div class="quickgrid">
+          <a class="quick" href="#" title="Replace with your real link">
+            <span class="quick__icon">📍</span>
+            <span class="quick__text">Market Lookup</span>
+          </a>
+          <a class="quick" href="#" title="Replace with your real link">
+            <span class="quick__icon">🧾</span>
+            <span class="quick__text">Reports</span>
+          </a>
+          <a class="quick" href="#" title="Replace with your real link">
+            <span class="quick__icon">🗺️</span>
+            <span class="quick__text">Network Map</span>
+          </a>
+          <a class="quick" href="#" title="Replace with your real link">
+            <span class="quick__icon">✅</span>
+            <span class="quick__text">Daily Checklist</span>
+          </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="mini">
+          <div class="mini__row">
+            <span class="muted">Last updated</span>
+            <span id="lastUpdated">—</span>
+          </div>
+          <div class="mini__row">
+            <span class="muted">Build</span>
+            <span class="mono">v1.0</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Dashboards</h3>
-      <a class="list__item" href="#">Weekly Summary</a>
-      <a class="list__item" href="#">Damage Prevention</a>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="section" id="dashboard">
+    <div class="section__head">
+      <h2 class="section__title">Dashboard</h2>
+      <p class="section__desc">Pin your most-used links here.</p>
     </div>
-    <div class="card">
-      <h3>Forms</h3>
-      <a class="list__item" href="#">Pre-Trip</a>
-      <a class="list__item" href="#">Post-Trip</a>
+
+    <div class="grid">
+      <article class="card">
+        <h3 class="card__title">Operational Links</h3>
+        <p class="card__sub">Daily pages</p>
+        <div class="list">
+          <a class="list__item" href="#">Home</a>
+          <a class="list__item" href="#">Clearance Queue</a>
+          <a class="list__item" href="#">Exception Review</a>
+          <a class="list__item" href="#">Contact Roster</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Dashboards</h3>
+        <p class="card__sub">Power BI / SharePoint</p>
+        <div class="list">
+          <a class="list__item" href="#">Weekly Summary</a>
+          <a class="list__item" href="#">Damage Prevention</a>
+          <a class="list__item" href="#">Network Overview</a>
+          <a class="list__item" href="#">Audit Tracker</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Forms</h3>
+        <p class="card__sub">Quick submit</p>
+        <div class="list">
+          <a class="list__item" href="#">Pre-Trip</a>
+          <a class="list__item" href="#">Post-Trip</a>
+          <a class="list__item" href="#">Incident Report</a>
+          <a class="list__item" href="#">Feedback</a>
+        </div>
+      </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- TOOLS -->
-<section class="section" id="tools">
-  <h2>Tools</h2>
-  <div class="grid">
-    <div class="card">⚙️ Ops Tool</div>
-    <div class="card">📊 Report Hub</div>
-    <div class="card">📝 Submit Form</div>
-  </div>
-</section>
+  <!-- TOOLS -->
+  <section class="section" id="tools">
+    <div class="section__head">
+      <h2 class="section__title">Tools</h2>
+      <p class="section__desc">Search + filter starter.</p>
+    </div>
 
-<!-- UPDATES -->
-<section class="section" id="updates">
-  <h2>Updates</h2>
-  <div class="card">
-    <ul>
-      <li>Portal redesign complete</li>
-      <li>Animated intro added</li>
-      <li>Performance optimized</li>
-    </ul>
-  </div>
-</section>
+    <div class="toolbar">
+      <input class="input" id="searchInput" type="search" placeholder="Search tools…" />
+      <select class="select" id="categorySelect">
+        <option value="all">All</option>
+        <option value="ops">Ops</option>
+        <option value="reports">Reports</option>
+        <option value="forms">Forms</option>
+      </select>
+    </div>
 
-<footer class="footer">
-  Ops Portal • Internal Operations Use
-</footer>
+    <div class="tilegrid" id="tileGrid">
+      <a class="tile" href="#" data-category="ops">
+        <div class="tile__top">
+          <span class="tile__icon">⚙️</span>
+          <span class="badge badge--soft">Ops</span>
+        </div>
+        <div class="tile__title">Ops Tool</div>
+        <div class="tile__sub">Replace with your ops tool link</div>
+      </a>
+
+      <a class="tile" href="#" data-category="reports">
+        <div class="tile__top">
+          <span class="tile__icon">📊</span>
+          <span class="badge badge--soft">Reports</span>
+        </div>
+        <div class="tile__title">Report Hub</div>
+        <div class="tile__sub">Replace with your report hub</div>
+      </a>
+
+      <a class="tile" href="#" data-category="forms">
+        <div class="tile__top">
+          <span class="tile__icon">📝</span>
+          <span class="badge badge--soft">Forms</span>
+        </div>
+        <div class="tile__title">Submit Form</div>
+        <div class="tile__sub">Replace with your form link</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- UPDATES -->
+  <section class="section" id="updates">
+    <div class="section__head">
+      <h2 class="section__title">Updates</h2>
+      <p class="section__desc">Simple notes so users trust the portal.</p>
+    </div>
+
+    <div class="grid grid--2">
+      <article class="card">
+        <h3 class="card__title">Release Notes</h3>
+        <ul class="bullets">
+          <li>New Ops Portal layout</li>
+          <li>Logo in header + watermark hero background</li>
+          <li>Theme toggle</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Planned</h3>
+        <ul class="bullets">
+          <li>Replace placeholders with real links</li>
+          <li>Role-based sections</li>
+          <li>Power BI embeds</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="muted">Ops Portal • Internal operations use</span>
+    <span class="muted">Static site • HTML + CSS + JS</span>
+  </footer>
 
 </main>
 
