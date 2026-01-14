@@ -1,39 +1,42 @@
-// Last updated timestamp
-document.getElementById("lastUpdated").textContent =
-  new Date().toLocaleString();
+(function () {
+  const root = document.documentElement;
 
-// Theme toggle
-const root = document.documentElement;
-const btn = document.getElementById("themeToggle");
-const saved = localStorage.getItem("ops_theme");
+  // Set last updated
+  const lastUpdated = document.getElementById("lastUpdated");
+  if (lastUpdated) lastUpdated.textContent = new Date().toLocaleString();
 
-if (saved) root.setAttribute("data-theme", saved);
+  // Theme toggle (stores preference)
+  const themeToggle = document.getElementById("themeToggle");
+  const saved = localStorage.getItem("ops_theme");
+  if (saved) root.setAttribute("data-theme", saved);
 
-btn.onclick = () => {
-  const next =
-    root.getAttribute("data-theme") === "light" ? "dark" : "light";
-  root.setAttribute("data-theme", next);
-  localStorage.setItem("ops_theme", next);
-};
-
-// Tool search + filter
-const search = document.getElementById("searchInput");
-const category = document.getElementById("categorySelect");
-const grid = document.getElementById("tileGrid");
-
-function filterTiles(){
-  const q = search.value.toLowerCase();
-  const cat = category.value;
-
-  [...grid.children].forEach(tile=>{
-    const text = tile.textContent.toLowerCase();
-    const tcat = tile.dataset.category;
-    const show =
-      (!q || text.includes(q)) &&
-      (cat === "all" || tcat === cat);
-    tile.style.display = show ? "block" : "none";
+  themeToggle?.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme") || "dark";
+    const next = current === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("ops_theme", next);
   });
-}
 
-search.oninput = filterTiles;
-category.onchange = filterTiles;
+  // Search + category filter for tiles
+  const searchInput = document.getElementById("searchInput");
+  const categorySelect = document.getElementById("categorySelect");
+  const tileGrid = document.getElementById("tileGrid");
+
+  function applyFilters() {
+    if (!tileGrid) return;
+    const q = (searchInput?.value || "").trim().toLowerCase();
+    const cat = categorySelect?.value || "all";
+
+    const tiles = Array.from(tileGrid.querySelectorAll(".tile"));
+    tiles.forEach((tile) => {
+      const text = tile.innerText.toLowerCase();
+      const tileCat = tile.getAttribute("data-category") || "all";
+      const matchQ = !q || text.includes(q);
+      const matchCat = cat === "all" || tileCat === cat;
+      tile.style.display = matchQ && matchCat ? "" : "none";
+    });
+  }
+
+  searchInput?.addEventListener("input", applyFilters);
+  categorySelect?.addEventListener("change", applyFilters);
+})();
