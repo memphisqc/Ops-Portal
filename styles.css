@@ -1,92 +1,52 @@
-:root{
-  --bg:#0b1220;
-  --bg2:#0f1930;
-  --card:#111c35;
-  --text:#e8eefc;
-  --muted:#aab6d6;
-  --border:rgba(255,255,255,.08);
-  --shadow:0 20px 50px rgba(0,0,0,.35);
-  --accent:#6ea8ff;
-  --accent2:#7cf0c7;
-  --radius:18px;
-  --radius2:26px;
-  --max:1120px;
-}
-
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:system-ui,Segoe UI,Roboto,Arial;
-  color:var(--text);
-  background:
-    radial-gradient(circle at center,#0f1930 0%,#050914 70%);
-  opacity:0;
-  animation:siteFadeIn 1.2s ease forwards;
-  animation-delay:3.8s;
+  background:#0b1220;
+  color:#e8eefc;
 }
 
-@keyframes siteFadeIn{
-  to{opacity:1}
-}
-
-/* ================= INTRO ================= */
-
+/* INTRO */
 #intro{
   position:fixed;
   inset:0;
-  z-index:9999;
-  background:
-    radial-gradient(circle at center,#0f1930 0%,#050914 70%);
+  background:#0b1220;
   display:flex;
   align-items:center;
   justify-content:center;
-  animation:introFadeOut 1.2s ease forwards;
-  animation-delay:3.6s;
+  z-index:9999;
+  animation:introFade 1s ease forwards;
+  animation-delay:3.5s;
 }
 
 #intro img{
-  width:260px;
-  animation:planeLaunch 3.2s ease-in-out forwards;
+  width:200px;
+  animation:planeIn 3s ease forwards;
 }
 
-@keyframes planeLaunch{
-  0%{transform:scale(.35) translateY(50px);opacity:0}
-  30%{opacity:1}
-  70%{transform:scale(1.05) translateY(0)}
-  100%{transform:scale(1.25) translateY(-40px)}
+@keyframes planeIn{
+  from{transform:scale(.4);opacity:0}
+  to{transform:scale(1);opacity:1}
 }
 
-@keyframes introFadeOut{
+@keyframes introFade{
   to{opacity:0;visibility:hidden}
 }
 
-/* ================= HEADER ================= */
-
-.container{max-width:var(--max);margin:auto;padding:0 18px}
-
+/* HEADER */
 .topbar{
-  position:sticky;
-  top:0;
-  backdrop-filter:blur(10px);
-  background:rgba(10,16,30,.6);
-  border-bottom:1px solid var(--border);
+  background:#0f1930;
+  padding:12px 0;
 }
 
-.topbar__inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 0;
-}
-
-.brand{display:flex;gap:12px;align-items:center}
+.brand{display:flex;gap:10px;align-items:center}
 
 .brand__mark{
-  width:36px;
-  height:36px;
+  width:34px;
+  height:34px;
   border-radius:10px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.05);
+  background:#111c35;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -94,80 +54,27 @@ body{
 
 .brand__mark img{
   width:70%;
-  height:70%;
-  object-fit:contain;
 }
 
-.brand__title{font-weight:900}
-.brand__sub{font-size:12px;color:var(--muted)}
-
-.nav{display:flex;gap:14px}
-.nav__link{color:var(--muted)}
-.nav__link:hover{color:var(--text)}
-
-.btn{
-  padding:10px 14px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  border:none;
-  font-weight:800;
-}
-
-.btn--ghost{
-  background:transparent;
-  color:var(--text);
-  border:1px solid var(--border);
-}
-
-/* ================= HERO ================= */
-
+/* HERO */
 .hero{
-  position:relative;
-  padding:40px 0;
   display:grid;
-  grid-template-columns:1.25fr .9fr;
+  grid-template-columns:1.2fr .8fr;
   gap:20px;
+  padding:40px 0;
 }
 
 .hero--logo-bg::before{
   content:"";
   position:absolute;
   inset:0;
-  background:url("logo.png") no-repeat left 40px center / 320px;
+  background:url("logo.png") no-repeat left 30px center / 260px;
   opacity:.05;
-  z-index:0;
 }
 
-.hero>*{position:relative;z-index:1}
-
-.pill{
-  display:inline-block;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  font-size:13px;
-  color:var(--muted);
-}
-
-.hero__title{font-size:42px;margin:14px 0}
-.hero__desc{color:var(--muted)}
-
-.hero__cta{display:flex;gap:10px}
-
-.card{
-  border:1px solid var(--border);
-  border-radius:var(--radius2);
-  padding:16px;
-  background:rgba(255,255,255,.04);
-}
-
-.quickgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.quick{padding:12px;border-radius:14px;border:1px solid var(--border)}
-
-.footer{
-  margin-top:40px;
-  padding:20px 0;
-  border-top:1px solid var(--border);
-  text-align:center;
-  color:var(--muted);
-}
+/* BASIC UI */
+.card{background:#111c35;padding:16px;border-radius:16px}
+.quick{display:block;margin:6px 0}
+.section{padding:30px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.footer{text-align:center;padding:20px;color:#aaa}
