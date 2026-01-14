@@ -4,21 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ops Portal</title>
-
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-<!-- ================= INTRO ANIMATION ================= -->
+<!-- INTRO OVERLAY -->
 <div id="intro">
   <img src="logo.png" alt="Ops Portal Launch" />
 </div>
 
-<!-- ================= HEADER ================= -->
 <header class="topbar">
   <div class="container topbar__inner">
-
     <div class="brand">
       <div class="brand__mark">
         <img src="logo.png" alt="Ops Portal Logo">
@@ -40,9 +37,9 @@
   </div>
 </header>
 
-<!-- ================= MAIN ================= -->
 <main class="container">
 
+<!-- OVERVIEW -->
 <section class="hero hero--logo-bg" id="overview">
   <div>
     <div class="pill">Operational Portal</div>
@@ -58,33 +55,56 @@
   </div>
 
   <div class="card card--glass">
-    <div class="card__header">
-      <div>
-        <div class="card__title">Quick Access</div>
-        <div class="card__sub">Shortcuts for daily use</div>
-      </div>
-      <span class="badge">Online</span>
-    </div>
+    <h3>Quick Access</h3>
+    <a class="quick" href="#">📍 Market Lookup</a>
+    <a class="quick" href="#">🧾 Reports</a>
+    <a class="quick" href="#">🗺️ Network Map</a>
+    <a class="quick" href="#">✅ Daily Checklist</a>
+    <p class="muted">Last updated <span id="lastUpdated">—</span></p>
+  </div>
+</section>
 
-    <div class="quickgrid">
-      <a class="quick" href="#">📍 Market Lookup</a>
-      <a class="quick" href="#">🧾 Reports</a>
-      <a class="quick" href="#">🗺️ Network Map</a>
-      <a class="quick" href="#">✅ Daily Checklist</a>
+<!-- DASHBOARD -->
+<section class="section" id="dashboard">
+  <h2>Dashboard</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Operational Links</h3>
+      <a class="list__item" href="#">Clearance Queue</a>
+      <a class="list__item" href="#">Exception Review</a>
     </div>
-
-    <div class="divider"></div>
-
-    <div class="mini">
-      <div class="mini__row">
-        <span class="muted">Last updated</span>
-        <span id="lastUpdated">—</span>
-      </div>
-      <div class="mini__row">
-        <span class="muted">Build</span>
-        <span class="mono">v1.0</span>
-      </div>
+    <div class="card">
+      <h3>Dashboards</h3>
+      <a class="list__item" href="#">Weekly Summary</a>
+      <a class="list__item" href="#">Damage Prevention</a>
     </div>
+    <div class="card">
+      <h3>Forms</h3>
+      <a class="list__item" href="#">Pre-Trip</a>
+      <a class="list__item" href="#">Post-Trip</a>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section" id="tools">
+  <h2>Tools</h2>
+  <div class="grid">
+    <div class="card">⚙️ Ops Tool</div>
+    <div class="card">📊 Report Hub</div>
+    <div class="card">📝 Submit Form</div>
+  </div>
+</section>
+
+<!-- UPDATES -->
+<section class="section" id="updates">
+  <h2>Updates</h2>
+  <div class="card">
+    <ul>
+      <li>Portal redesign complete</li>
+      <li>Animated intro added</li>
+      <li>Performance optimized</li>
+    </ul>
   </div>
 </section>
 
