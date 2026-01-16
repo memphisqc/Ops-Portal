@@ -1,6 +1,45 @@
 (function () {
   const root = document.documentElement;
 
+  // ==========================
+  // Intro video (fade to site)
+  // ==========================
+  const introOverlay = document.getElementById("introOverlay");
+  const introVideo = document.getElementById("introVideo");
+  const skipIntro = document.getElementById("skipIntro");
+  const siteContent = document.getElementById("siteContent");
+
+  function revealSiteWithFade() {
+    // Fade overlay out
+    if (introOverlay) {
+      introOverlay.classList.add("intro-hide");
+      // After fade, remove overlay from layout
+      setTimeout(() => {
+        introOverlay.style.display = "none";
+      }, 700);
+    }
+
+    // Fade site in
+    if (siteContent) {
+      siteContent.classList.remove("site-hidden");
+      siteContent.classList.add("site-visible");
+    }
+  }
+
+  // If autoplay is blocked, show the site anyway after a moment
+  setTimeout(() => {
+    if (introVideo && introVideo.paused && introVideo.currentTime === 0) {
+      revealSiteWithFade();
+    }
+  }, 1200);
+
+  introVideo?.addEventListener("ended", revealSiteWithFade);
+
+  skipIntro?.addEventListener("click", () => {
+    try { introVideo?.pause(); } catch (e) {}
+    revealSiteWithFade();
+  });
+
   // Theme toggle
   const themeToggle = document.getElementById("themeToggle");
   const savedTheme = localStorage.getItem("portal_theme");
