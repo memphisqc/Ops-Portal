@@ -10,350 +10,373 @@
 
 <body>
 
-  <!-- Top Nav -->
-  <header class="topbar">
-    <div class="container topbar__inner">
+  <!-- Intro Video Overlay -->
+  <div id="introOverlay" class="intro-overlay" aria-hidden="false">
+    <video
+      id="introVideo"
+      class="intro-video"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+    >
+      <source src="intro.mp4" type="video/mp4" />
+    </video>
 
-      <div class="brand">
-        <div class="brand__mark">
-          <img src="logo.png" alt="PORTAL Logo">
+    <button id="skipIntro" class="intro-skip btn btn--ghost" type="button">
+      Skip
+    </button>
+  </div>
+
+  <!-- Wrap your existing site so it can fade in after the intro -->
+  <div id="siteContent" class="site-hidden">
+
+    <!-- Top Nav -->
+    <header class="topbar">
+      <div class="container topbar__inner">
+
+        <div class="brand">
+          <div class="brand__mark">
+            <img src="logo.png" alt="PORTAL Logo">
+          </div>
+
+          <div class="brand__text">
+            <div class="brand__title">PORTAL</div>
+            <div class="brand__sub">Performance, Operations, Reporting &amp; Tools Launchpad</div>
+          </div>
         </div>
 
-        <div class="brand__text">
-          <div class="brand__title">PORTAL</div>
-          <div class="brand__sub">Performance, Operations, Reporting &amp; Tools Launchpad</div>
+        <nav class="nav">
+          <a class="nav__link" href="#overview">Overview</a>
+          <a class="nav__link" href="#dashboard">Dashboard</a>
+          <a class="nav__link" href="#resources">Resources</a>
+          <a class="nav__link" href="#updates">Updates</a>
+        </nav>
+
+        <div class="topbar__actions">
+          <button class="btn btn--ghost" id="themeToggle" type="button">Toggle Theme</button>
         </div>
       </div>
+    </header>
 
-      <nav class="nav">
-        <a class="nav__link" href="#overview">Overview</a>
-        <a class="nav__link" href="#dashboard">Dashboard</a>
-        <a class="nav__link" href="#resources">Resources</a>
-        <a class="nav__link" href="#updates">Updates</a>
-      </nav>
+    <!-- Main -->
+    <main class="container">
 
-      <div class="topbar__actions">
-        <button class="btn btn--ghost" id="themeToggle" type="button">Toggle Theme</button>
-      </div>
-    </div>
-  </header>
+      <!-- Hero -->
+      <section class="hero hero--logo-bg" id="overview">
+        <div class="hero__left">
+          <div class="pill">Operational Portal</div>
 
-  <!-- Main -->
-  <main class="container">
+          <h1 class="hero__title">PORTAL</h1>
+          <p class="hero__subtitle">
+            <strong>P</strong>erformance,
+            <strong>O</strong>perations,
+            <strong>R</strong>eporting &amp;
+            <strong>T</strong>ools
+            <strong>L</strong>aunchpad
+          </p>
 
-    <!-- Hero -->
-    <section class="hero hero--logo-bg" id="overview">
-      <div class="hero__left">
-        <div class="pill">Operational Portal</div>
+          <p class="hero__desc">
+            A single, clean entry point for daily operations, dashboards, and tools.
+          </p>
 
-        <h1 class="hero__title">PORTAL</h1>
-        <p class="hero__subtitle">
-          <strong>P</strong>erformance,
-          <strong>O</strong>perations,
-          <strong>R</strong>eporting &amp;
-          <strong>T</strong>ools
-          <strong>L</strong>aunchpad
-        </p>
-
-        <p class="hero__desc">
-          A single, clean entry point for daily operations, dashboards, and tools.
-        </p>
-
-        <div class="hero__cta">
-          <a class="btn" href="#dashboard">Go to Dashboard</a>
-          <a class="btn btn--ghost" href="#resources">Browse Resources</a>
+          <div class="hero__cta">
+            <a class="btn" href="#dashboard">Go to Dashboard</a>
+            <a class="btn btn--ghost" href="#resources">Browse Resources</a>
+          </div>
         </div>
-      </div>
 
-      <div class="hero__right">
-        <div class="card card--glass">
-          <div class="card__header">
-            <div>
-              <div class="card__title">Quick Access</div>
-              <div class="card__sub">Shortcuts for daily use</div>
+        <div class="hero__right">
+          <div class="card card--glass">
+            <div class="card__header">
+              <div>
+                <div class="card__title">Quick Access</div>
+                <div class="card__sub">Shortcuts for daily use</div>
+              </div>
+              <span class="badge" id="statusBadge">Online</span>
             </div>
-            <span class="badge" id="statusBadge">Online</span>
-          </div>
 
-          <div class="quickgrid">
-            <a class="quick" href="#" title="Replace with your real link">
-              <span class="quick__icon">📍</span>
-              <span class="quick__text">Market Lookup</span>
-            </a>
-            <a class="quick" href="#" title="Replace with your real link">
-              <span class="quick__icon">🧾</span>
-              <span class="quick__text">Reports</span>
-            </a>
-            <a class="quick" href="#" title="Replace with your real link">
-              <span class="quick__icon">🗺️</span>
-              <span class="quick__text">Network Map</span>
-            </a>
-            <a class="quick" href="#" title="Replace with your real link">
-              <span class="quick__icon">✅</span>
-              <span class="quick__text">Daily Checklist</span>
-            </a>
-          </div>
-
-          <div class="divider"></div>
-
-          <div class="mini">
-            <div class="mini__row">
-              <span class="muted">Last updated</span>
-              <span id="lastUpdated">—</span>
+            <div class="quickgrid">
+              <a class="quick" href="#" title="Replace with your real link">
+                <span class="quick__icon">📍</span>
+                <span class="quick__text">Market Lookup</span>
+              </a>
+              <a class="quick" href="#" title="Replace with your real link">
+                <span class="quick__icon">🧾</span>
+                <span class="quick__text">Reports</span>
+              </a>
+              <a class="quick" href="#" title="Replace with your real link">
+                <span class="quick__icon">🗺️</span>
+                <span class="quick__text">Network Map</span>
+              </a>
+              <a class="quick" href="#" title="Replace with your real link">
+                <span class="quick__icon">✅</span>
+                <span class="quick__text">Daily Checklist</span>
+              </a>
             </div>
-            <div class="mini__row">
-              <span class="muted">Build</span>
-              <span class="mono">v1.0</span>
+
+            <div class="divider"></div>
+
+            <div class="mini">
+              <div class="mini__row">
+                <span class="muted">Last updated</span>
+                <span id="lastUpdated">—</span>
+              </div>
+              <div class="mini__row">
+                <span class="muted">Build</span>
+                <span class="mono">v1.0</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Dashboard -->
-    <section class="section" id="dashboard">
-      <div class="section__head">
-        <h2 class="section__title">Dashboard</h2>
-        <p class="section__desc">Use these cards for your most-used pages.</p>
-      </div>
+      <!-- Dashboard -->
+      <section class="section" id="dashboard">
+        <div class="section__head">
+          <h2 class="section__title">Dashboard</h2>
+          <p class="section__desc">Use these cards for your most-used pages.</p>
+        </div>
 
-      <div class="grid">
-        <article class="card">
-          <h3 class="card__title">Operational Links</h3>
-          <p class="card__sub">Pinned items for daily use</p>
-          <div class="list">
-            <a class="list__item" href="#">THOR Home</a>
-            <a class="list__item" href="#">Clearance Queue</a>
-            <a class="list__item" href="#">Exception Review</a>
-            <a class="list__item" href="#">Contact Roster</a>
+        <div class="grid">
+          <article class="card">
+            <h3 class="card__title">Operational Links</h3>
+            <p class="card__sub">Pinned items for daily use</p>
+            <div class="list">
+              <a class="list__item" href="#">THOR Home</a>
+              <a class="list__item" href="#">Clearance Queue</a>
+              <a class="list__item" href="#">Exception Review</a>
+              <a class="list__item" href="#">Contact Roster</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Dashboards</h3>
+            <p class="card__sub">Power BI / SharePoint</p>
+            <div class="list">
+              <a class="list__item" href="#">Weekly Summary</a>
+              <a class="list__item" href="#">Damage Prevention</a>
+              <a class="list__item" href="#">Network Map</a>
+              <a class="list__item" href="#">Audit Tracker</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Forms</h3>
+            <p class="card__sub">Quick submit</p>
+            <div class="list">
+              <a class="list__item" href="#">Pre-Trip</a>
+              <a class="list__item" href="#">Post-Trip</a>
+              <a class="list__item" href="#">Incident</a>
+              <a class="list__item" href="#">Feedback</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Resources -->
+      <section class="section" id="resources">
+        <div class="section__head">
+          <h2 class="section__title">Resources</h2>
+          <p class="section__desc">Search + filter resources.</p>
+        </div>
+
+        <div class="toolbar">
+          <input class="input" id="searchInput" type="search" placeholder="Search resources…" autocomplete="off" />
+          <select class="select" id="categorySelect">
+            <option value="all">All</option>
+            <option value="tracking">Package/Container Tracking</option>
+            <option value="operations">Operations</option>
+            <option value="safety">Safety</option>
+            <option value="employee">Employee Links</option>
+          </select>
+        </div>
+
+        <div class="resourcegrid" id="tileGrid">
+
+          <!-- Package/Container Tracking -->
+          <div class="resource-section" data-section="tracking">
+            <div class="resource-section__title">Package/Container Tracking</div>
+
+            <a class="resource-item tile" data-category="tracking" href="https://myapps-atl03.secure.fedex.com/eShipmentGUI/MenuPage.iface" target="_blank" rel="noopener">
+              <div class="resource-item__name">eOps</div>
+              <div class="resource-item__link mono">https://myapps-atl03.secure.fedex.com/eShipmentGUI/MenuPage.iface</div>
+            </a>
+
+            <a class="resource-item tile" data-category="tracking" href="https://mission.ebs.fedex.com/mission/index.cfm" target="_blank" rel="noopener">
+              <div class="resource-item__name">mission</div>
+              <div class="resource-item__link mono">https://mission.ebs.fedex.com/mission/index.cfm</div>
+            </a>
+
+            <a class="resource-item tile" data-category="tracking" href="https://myapps-atl03.secure.fedex.com/eShipmentGUI/DisplayLinkHandler?id=5" target="_blank" rel="noopener">
+              <div class="resource-item__name">CONS Explorer/Report</div>
+              <div class="resource-item__link mono">https://myapps-atl03.secure.fedex.com/eShipmentGUI/DisplayLinkHandler?id=5</div>
+            </a>
+
+            <a class="resource-item tile" data-category="tracking" href="https://myapps-atl02.secure.fedex.com/ULDWebApp/" target="_blank" rel="noopener">
+              <div class="resource-item__name">ULD</div>
+              <div class="resource-item__link mono">https://myapps-atl02.secure.fedex.com/ULDWebApp/</div>
+            </a>
+
+            <a class="resource-item tile" data-category="tracking" href="https://emars-tssrealtime-las.g.fedex.com:8001/spotfire/wp/analysis?file=/DRE/DREReport/AnalysisFiles/DREReport&waid=a-O0Io0BxEeZKcWwcD4KN-12234666ec4lBs&wavid=0" target="_blank" rel="noopener">
+              <div class="resource-item__name">DRE Tool</div>
+              <div class="resource-item__link mono">https://emars-tssrealtime-las.g.fedex.com:8001/spotfire/wp/analysis?file=/DRE/DREReport/AnalysisFiles/DREReport&waid=a-O0Io0BxEeZKcWwcD4KN-12234666ec4lBs&wavid=0</div>
+            </a>
+
+            <a class="resource-item tile" data-category="tracking" href="https://ils.app.paas.fedex.com/ils/" target="_blank" rel="noopener">
+              <div class="resource-item__name">ILS</div>
+              <div class="resource-item__link mono">https://ils.app.paas.fedex.com/ils/</div>
+            </a>
+
+            <a class="resource-item tile" data-category="tracking" href="https://eko.fedex.com/en/publications/ess.html" target="_blank" rel="noopener">
+              <div class="resource-item__name">Scanning</div>
+              <div class="resource-item__link mono">https://eko.fedex.com/en/publications/ess.html</div>
+            </a>
+
+            <a class="resource-item tile" data-category="tracking" href="https://secom.prod.fedex.com/iot-cp/home" target="_blank" rel="noopener">
+              <div class="resource-item__name">SAVP</div>
+              <div class="resource-item__link mono">https://secom.prod.fedex.com/iot-cp/home</div>
+            </a>
+
+            <a class="resource-item tile" data-category="tracking" href="https://dpt-ui-dpt.fxi-001.fxi-prod.az.fxei.fedex.com/dashboard" target="_blank" rel="noopener">
+              <div class="resource-item__name">DPT</div>
+              <div class="resource-item__link mono">https://dpt-ui-dpt.fxi-001.fxi-prod.az.fxei.fedex.com/dashboard</div>
+            </a>
           </div>
-        </article>
 
-        <article class="card">
-          <h3 class="card__title">Dashboards</h3>
-          <p class="card__sub">Power BI / SharePoint</p>
-          <div class="list">
-            <a class="list__item" href="#">Weekly Summary</a>
-            <a class="list__item" href="#">Damage Prevention</a>
-            <a class="list__item" href="#">Network Map</a>
-            <a class="list__item" href="#">Audit Tracker</a>
+          <!-- Operations -->
+          <div class="resource-section" data-section="operations">
+            <div class="resource-section__title">Operations</div>
+
+            <a class="resource-item tile" data-category="operations" href="https://annie.mis.fedex.com/app/" target="_blank" rel="noopener">
+              <div class="resource-item__name">Annie</div>
+              <div class="resource-item__link mono">https://annie.mis.fedex.com/app/</div>
+            </a>
+
+            <a class="resource-item tile" data-category="operations" href="https://myfedex.sharepoint.com/sites/tech_ops/SitePages/Workbench.aspx" target="_blank" rel="noopener">
+              <div class="resource-item__name">Workbench</div>
+              <div class="resource-item__link mono">https://myfedex.sharepoint.com/sites/tech_ops/SitePages/Workbench.aspx</div>
+            </a>
+
+            <a class="resource-item tile" data-category="operations" href="https://lp-atl-tripvcom.prod.cloud.fedex.com:8443/trip/" target="_blank" rel="noopener">
+              <div class="resource-item__name">TRIPS</div>
+              <div class="resource-item__link mono">https://lp-atl-tripvcom.prod.cloud.fedex.com:8443/trip/</div>
+            </a>
+
+            <a class="resource-item tile" data-category="operations" href="https://aoc-memhub-s1.corp.ds.fedex.com/autorollover/" target="_blank" rel="noopener">
+              <div class="resource-item__name">Autorollover</div>
+              <div class="resource-item__link mono">https://aoc-memhub-s1.corp.ds.fedex.com/autorollover/</div>
+            </a>
+
+            <a class="resource-item tile" data-category="operations" href="https://aoc-memhub-s1.corp.ds.fedex.com/apps/utrams/" target="_blank" rel="noopener">
+              <div class="resource-item__name">UTRAMS</div>
+              <div class="resource-item__link mono">https://aoc-memhub-s1.corp.ds.fedex.com/apps/utrams/</div>
+            </a>
+
+            <a class="resource-item tile" data-category="operations" href="https://rsope.gpe.fedex.com/rsope/MSL/tools_reports/MEMH_TRAMS.htm" target="_blank" rel="noopener">
+              <div class="resource-item__name">GS-MEM</div>
+              <div class="resource-item__link mono">https://rsope.gpe.fedex.com/rsope/MSL/tools_reports/MEMH_TRAMS.htm</div>
+            </a>
+
+            <a class="resource-item tile" data-category="operations" href="https://rsope.gpe.fedex.com/rsope/" target="_blank" rel="noopener">
+              <div class="resource-item__name">RSOPE</div>
+              <div class="resource-item__link mono">https://rsope.gpe.fedex.com/rsope/</div>
+            </a>
+
+            <a class="resource-item tile" data-category="operations" href="https://splits.prod.cloud.fedex.com/app/" target="_blank" rel="noopener">
+              <div class="resource-item__name">SPLITS</div>
+              <div class="resource-item__link mono">https://splits.prod.cloud.fedex.com/app/</div>
+            </a>
+
+            <a class="resource-item tile" data-category="operations" href="https://mxsupport.prod.cloud.fedex.com/gatesheet/index.jsp" target="_blank" rel="noopener">
+              <div class="resource-item__name">Gatesheet</div>
+              <div class="resource-item__link mono">https://mxsupport.prod.cloud.fedex.com/gatesheet/index.jsp</div>
+            </a>
           </div>
-        </article>
 
-        <article class="card">
-          <h3 class="card__title">Forms</h3>
-          <p class="card__sub">Quick submit</p>
-          <div class="list">
-            <a class="list__item" href="#">Pre-Trip</a>
-            <a class="list__item" href="#">Post-Trip</a>
-            <a class="list__item" href="#">Incident</a>
-            <a class="list__item" href="#">Feedback</a>
+          <!-- Safety -->
+          <div class="resource-section" data-section="safety">
+            <div class="resource-section__title">Safety</div>
+
+            <a class="resource-item tile" data-category="safety" href="http://safety.fedex.com/" target="_blank" rel="noopener">
+              <div class="resource-item__name">Safety Manual</div>
+              <div class="resource-item__link mono">http://safety.fedex.com/</div>
+            </a>
           </div>
-        </article>
-      </div>
-    </section>
 
-    <!-- Resources -->
-    <section class="section" id="resources">
-      <div class="section__head">
-        <h2 class="section__title">Resources</h2>
-        <p class="section__desc">Search + filter resources.</p>
-      </div>
+          <!-- Employee Links -->
+          <div class="resource-section" data-section="employee">
+            <div class="resource-section__title">Employee Links</div>
 
-      <div class="toolbar">
-        <input class="input" id="searchInput" type="search" placeholder="Search resources…" autocomplete="off" />
-        <select class="select" id="categorySelect">
-          <option value="all">All</option>
-          <option value="tracking">Package/Container Tracking</option>
-          <option value="operations">Operations</option>
-          <option value="safety">Safety</option>
-          <option value="employee">Employee Links</option>
-        </select>
-      </div>
+            <a class="resource-item tile" data-category="employee" href="https://cust01-prd05-ath01.prd.mykronos.com/authn/?realm=/fedexcorporate_prd_01&service=14991CustomerIDPChain&goto=https%3A%2F%2Ffedexcorporate-sso.prd.mykronos.com%3A443%2Fwfd%2Fhome%3FtenantId%3Dfedexcorporate_prd_01&authIndexType=service&authIndexValue=14991CustomerIDPChain&responsekey=6579c72e-010d-46e3-ab34-59f5ae3c8ceb&error=false" target="_blank" rel="noopener">
+              <div class="resource-item__name">Dimensions</div>
+              <div class="resource-item__link mono">https://cust01-prd05-ath01.prd.mykronos.com/authn/?realm=/fedexcorporate_prd_01&service=14991CustomerIDPChain&goto=...</div>
+            </a>
 
-      <div class="resourcegrid" id="tileGrid">
+            <a class="resource-item tile" data-category="employee" href="https://www.myworkday.com/fedex/d/home.htmld" target="_blank" rel="noopener">
+              <div class="resource-item__name">Workday</div>
+              <div class="resource-item__link mono">https://www.myworkday.com/fedex/d/home.htmld</div>
+            </a>
 
-        <!-- Package/Container Tracking -->
-        <div class="resource-section" data-section="tracking">
-          <div class="resource-section__title">Package/Container Tracking</div>
+            <a class="resource-item tile" data-category="employee" href="https://fedexcor.lms.sapsf.com/learning/user/personal/landOnPortalHome.do?fromSF=Y&fromDeepLink=true&pageID=" target="_blank" rel="noopener">
+              <div class="resource-item__name">FLC</div>
+              <div class="resource-item__link mono">https://fedexcor.lms.sapsf.com/learning/user/personal/landOnPortalHome.do?fromSF=Y&fromDeepLink=true&pageID=</div>
+            </a>
 
-          <a class="resource-item tile" data-category="tracking" href="https://myapps-atl03.secure.fedex.com/eShipmentGUI/MenuPage.iface" target="_blank" rel="noopener">
-            <div class="resource-item__name">eOps</div>
-            <div class="resource-item__link mono">https://myapps-atl03.secure.fedex.com/eShipmentGUI/MenuPage.iface</div>
-          </a>
+            <a class="resource-item tile" data-category="employee" href="https://geishr.gpe.fedex.com/eacknowledge/index.cfm" target="_blank" rel="noopener">
+              <div class="resource-item__name">EACK</div>
+              <div class="resource-item__link mono">https://geishr.gpe.fedex.com/eacknowledge/index.cfm</div>
+            </a>
 
-          <a class="resource-item tile" data-category="tracking" href="https://mission.ebs.fedex.com/mission/index.cfm" target="_blank" rel="noopener">
-            <div class="resource-item__name">mission</div>
-            <div class="resource-item__link mono">https://mission.ebs.fedex.com/mission/index.cfm</div>
-          </a>
+            <a class="resource-item tile" data-category="employee" href="https://image.prod.fedex.com/identityiq/home.jsf" target="_blank" rel="noopener">
+              <div class="resource-item__name">IMAGE</div>
+              <div class="resource-item__link mono">https://image.prod.fedex.com/identityiq/home.jsf</div>
+            </a>
 
-          <a class="resource-item tile" data-category="tracking" href="https://myapps-atl03.secure.fedex.com/eShipmentGUI/DisplayLinkHandler?id=5" target="_blank" rel="noopener">
-            <div class="resource-item__name">CONS Explorer/Report</div>
-            <div class="resource-item__link mono">https://myapps-atl03.secure.fedex.com/eShipmentGUI/DisplayLinkHandler?id=5</div>
-          </a>
+            <a class="resource-item tile" data-category="employee" href="https://aoc-memhub-s1.corp.ds.fedex.com/vacation_scheduler/login_page.asp" target="_blank" rel="noopener">
+              <div class="resource-item__name">Vacation</div>
+              <div class="resource-item__link mono">https://aoc-memhub-s1.corp.ds.fedex.com/vacation_scheduler/login_page.asp</div>
+            </a>
+          </div>
 
-          <a class="resource-item tile" data-category="tracking" href="https://myapps-atl02.secure.fedex.com/ULDWebApp/" target="_blank" rel="noopener">
-            <div class="resource-item__name">ULD</div>
-            <div class="resource-item__link mono">https://myapps-atl02.secure.fedex.com/ULDWebApp/</div>
-          </a>
+        </div>
+      </section>
 
-          <a class="resource-item tile" data-category="tracking" href="https://emars-tssrealtime-las.g.fedex.com:8001/spotfire/wp/analysis?file=/DRE/DREReport/AnalysisFiles/DREReport&waid=a-O0Io0BxEeZKcWwcD4KN-12234666ec4lBs&wavid=0" target="_blank" rel="noopener">
-            <div class="resource-item__name">DRE Tool</div>
-            <div class="resource-item__link mono">https://emars-tssrealtime-las.g.fedex.com:8001/spotfire/wp/analysis?file=/DRE/DREReport/AnalysisFiles/DREReport&waid=a-O0Io0BxEeZKcWwcD4KN-12234666ec4lBs&wavid=0</div>
-          </a>
-
-          <a class="resource-item tile" data-category="tracking" href="https://ils.app.paas.fedex.com/ils/" target="_blank" rel="noopener">
-            <div class="resource-item__name">ILS</div>
-            <div class="resource-item__link mono">https://ils.app.paas.fedex.com/ils/</div>
-          </a>
-
-          <a class="resource-item tile" data-category="tracking" href="https://eko.fedex.com/en/publications/ess.html" target="_blank" rel="noopener">
-            <div class="resource-item__name">Scanning</div>
-            <div class="resource-item__link mono">https://eko.fedex.com/en/publications/ess.html</div>
-          </a>
-
-          <a class="resource-item tile" data-category="tracking" href="https://secom.prod.fedex.com/iot-cp/home" target="_blank" rel="noopener">
-            <div class="resource-item__name">SAVP</div>
-            <div class="resource-item__link mono">https://secom.prod.fedex.com/iot-cp/home</div>
-          </a>
-
-          <a class="resource-item tile" data-category="tracking" href="https://dpt-ui-dpt.fxi-001.fxi-prod.az.fxei.fedex.com/dashboard" target="_blank" rel="noopener">
-            <div class="resource-item__name">DPT</div>
-            <div class="resource-item__link mono">https://dpt-ui-dpt.fxi-001.fxi-prod.az.fxei.fedex.com/dashboard</div>
-          </a>
+      <!-- Updates -->
+      <section class="section" id="updates">
+        <div class="section__head">
+          <h2 class="section__title">Updates</h2>
+          <p class="section__desc">Drop release notes here so people trust it.</p>
         </div>
 
-        <!-- Operations -->
-        <div class="resource-section" data-section="operations">
-          <div class="resource-section__title">Operations</div>
+        <div class="grid grid--2">
+          <article class="card">
+            <h3 class="card__title">Release Notes</h3>
+            <ul class="bullets">
+              <li>Grouped resources (Excel-style sections)</li>
+              <li>Search + filter fixed (works while typing)</li>
+              <li>Theme toggle (light/dark)</li>
+            </ul>
+          </article>
 
-          <a class="resource-item tile" data-category="operations" href="https://annie.mis.fedex.com/app/" target="_blank" rel="noopener">
-            <div class="resource-item__name">Annie</div>
-            <div class="resource-item__link mono">https://annie.mis.fedex.com/app/</div>
-          </a>
-
-          <a class="resource-item tile" data-category="operations" href="https://myfedex.sharepoint.com/sites/tech_ops/SitePages/Workbench.aspx" target="_blank" rel="noopener">
-            <div class="resource-item__name">Workbench</div>
-            <div class="resource-item__link mono">https://myfedex.sharepoint.com/sites/tech_ops/SitePages/Workbench.aspx</div>
-          </a>
-
-          <a class="resource-item tile" data-category="operations" href="https://lp-atl-tripvcom.prod.cloud.fedex.com:8443/trip/" target="_blank" rel="noopener">
-            <div class="resource-item__name">TRIPS</div>
-            <div class="resource-item__link mono">https://lp-atl-tripvcom.prod.cloud.fedex.com:8443/trip/</div>
-          </a>
-
-          <a class="resource-item tile" data-category="operations" href="https://aoc-memhub-s1.corp.ds.fedex.com/autorollover/" target="_blank" rel="noopener">
-            <div class="resource-item__name">Autorollover</div>
-            <div class="resource-item__link mono">https://aoc-memhub-s1.corp.ds.fedex.com/autorollover/</div>
-          </a>
-
-          <a class="resource-item tile" data-category="operations" href="https://aoc-memhub-s1.corp.ds.fedex.com/apps/utrams/" target="_blank" rel="noopener">
-            <div class="resource-item__name">UTRAMS</div>
-            <div class="resource-item__link mono">https://aoc-memhub-s1.corp.ds.fedex.com/apps/utrams/</div>
-          </a>
-
-          <a class="resource-item tile" data-category="operations" href="https://rsope.gpe.fedex.com/rsope/MSL/tools_reports/MEMH_TRAMS.htm" target="_blank" rel="noopener">
-            <div class="resource-item__name">GS-MEM</div>
-            <div class="resource-item__link mono">https://rsope.gpe.fedex.com/rsope/MSL/tools_reports/MEMH_TRAMS.htm</div>
-          </a>
-
-          <a class="resource-item tile" data-category="operations" href="https://rsope.gpe.fedex.com/rsope/" target="_blank" rel="noopener">
-            <div class="resource-item__name">RSOPE</div>
-            <div class="resource-item__link mono">https://rsope.gpe.fedex.com/rsope/</div>
-          </a>
-
-          <a class="resource-item tile" data-category="operations" href="https://splits.prod.cloud.fedex.com/app/" target="_blank" rel="noopener">
-            <div class="resource-item__name">SPLITS</div>
-            <div class="resource-item__link mono">https://splits.prod.cloud.fedex.com/app/</div>
-          </a>
-
-          <a class="resource-item tile" data-category="operations" href="https://mxsupport.prod.cloud.fedex.com/gatesheet/index.jsp" target="_blank" rel="noopener">
-            <div class="resource-item__name">Gatesheet</div>
-            <div class="resource-item__link mono">https://mxsupport.prod.cloud.fedex.com/gatesheet/index.jsp</div>
-          </a>
+          <article class="card">
+            <h3 class="card__title">Planned</h3>
+            <ul class="bullets">
+              <li>Add more links + icons</li>
+              <li>Role-based sections (Mgmt vs Hourly)</li>
+              <li>Embed Power BI tiles</li>
+            </ul>
+          </article>
         </div>
+      </section>
 
-        <!-- Safety -->
-        <div class="resource-section" data-section="safety">
-          <div class="resource-section__title">Safety</div>
+      <footer class="footer">
+        <span class="muted">PORTAL • Local static site template</span>
+        <span class="muted">Built with HTML + CSS + JS</span>
+      </footer>
+    </main>
 
-          <a class="resource-item tile" data-category="safety" href="http://safety.fedex.com/" target="_blank" rel="noopener">
-            <div class="resource-item__name">Safety Manual</div>
-            <div class="resource-item__link mono">http://safety.fedex.com/</div>
-          </a>
-        </div>
-
-        <!-- Employee Links -->
-        <div class="resource-section" data-section="employee">
-          <div class="resource-section__title">Employee Links</div>
-
-          <a class="resource-item tile" data-category="employee" href="https://cust01-prd05-ath01.prd.mykronos.com/authn/?realm=/fedexcorporate_prd_01&service=14991CustomerIDPChain&goto=https%3A%2F%2Ffedexcorporate-sso.prd.mykronos.com%3A443%2Fwfd%2Fhome%3FtenantId%3Dfedexcorporate_prd_01&authIndexType=service&authIndexValue=14991CustomerIDPChain&responsekey=6579c72e-010d-46e3-ab34-59f5ae3c8ceb&error=false" target="_blank" rel="noopener">
-            <div class="resource-item__name">Dimensions</div>
-            <div class="resource-item__link mono">https://cust01-prd05-ath01.prd.mykronos.com/authn/?realm=/fedexcorporate_prd_01&service=14991CustomerIDPChain&goto=...</div>
-          </a>
-
-          <a class="resource-item tile" data-category="employee" href="https://www.myworkday.com/fedex/d/home.htmld" target="_blank" rel="noopener">
-            <div class="resource-item__name">Workday</div>
-            <div class="resource-item__link mono">https://www.myworkday.com/fedex/d/home.htmld</div>
-          </a>
-
-          <a class="resource-item tile" data-category="employee" href="https://fedexcor.lms.sapsf.com/learning/user/personal/landOnPortalHome.do?fromSF=Y&fromDeepLink=true&pageID=" target="_blank" rel="noopener">
-            <div class="resource-item__name">FLC</div>
-            <div class="resource-item__link mono">https://fedexcor.lms.sapsf.com/learning/user/personal/landOnPortalHome.do?fromSF=Y&fromDeepLink=true&pageID=</div>
-          </a>
-
-          <a class="resource-item tile" data-category="employee" href="https://geishr.gpe.fedex.com/eacknowledge/index.cfm" target="_blank" rel="noopener">
-            <div class="resource-item__name">EACK</div>
-            <div class="resource-item__link mono">https://geishr.gpe.fedex.com/eacknowledge/index.cfm</div>
-          </a>
-
-          <a class="resource-item tile" data-category="employee" href="https://image.prod.fedex.com/identityiq/home.jsf" target="_blank" rel="noopener">
-            <div class="resource-item__name">IMAGE</div>
-            <div class="resource-item__link mono">https://image.prod.fedex.com/identityiq/home.jsf</div>
-          </a>
-
-          <a class="resource-item tile" data-category="employee" href="https://aoc-memhub-s1.corp.ds.fedex.com/vacation_scheduler/login_page.asp" target="_blank" rel="noopener">
-            <div class="resource-item__name">Vacation</div>
-            <div class="resource-item__link mono">https://aoc-memhub-s1.corp.ds.fedex.com/vacation_scheduler/login_page.asp</div>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Updates -->
-    <section class="section" id="updates">
-      <div class="section__head">
-        <h2 class="section__title">Updates</h2>
-        <p class="section__desc">Drop release notes here so people trust it.</p>
-      </div>
-
-      <div class="grid grid--2">
-        <article class="card">
-          <h3 class="card__title">Release Notes</h3>
-          <ul class="bullets">
-            <li>Grouped resources (Excel-style sections)</li>
-            <li>Search + filter fixed (works while typing)</li>
-            <li>Theme toggle (light/dark)</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3 class="card__title">Planned</h3>
-          <ul class="bullets">
-            <li>Add more links + icons</li>
-            <li>Role-based sections (Mgmt vs Hourly)</li>
-            <li>Embed Power BI tiles</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <span class="muted">PORTAL • Local static site template</span>
-      <span class="muted">Built with HTML + CSS + JS</span>
-    </footer>
-  </main>
+  </div><!-- /#siteContent -->
 
   <script src="app.js"></script>
 </body>
