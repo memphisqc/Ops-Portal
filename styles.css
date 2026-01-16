@@ -42,6 +42,54 @@ body{
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--max);margin:0 auto;padding:0 18px}
 
+/* =========================
+   INTRO VIDEO (FULL SCREEN)
+   ========================= */
+.site-hidden{
+  opacity:0;
+  pointer-events:none;
+  visibility:hidden;
+}
+
+.site-visible{
+  opacity:1;
+  pointer-events:auto;
+  visibility:visible;
+  transition:opacity 450ms ease;
+}
+
+.intro-overlay{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  z-index:9999;
+  background:#000;
+  opacity:1;
+  transition:opacity 700ms ease;
+}
+
+.intro-overlay.intro-hide{
+  opacity:0;
+  pointer-events:none;
+}
+
+.intro-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+.intro-skip{
+  position:absolute;
+  top:18px;
+  right:18px;
+  z-index:10000;
+}
+
 /* Header */
 .topbar{
   position:sticky;
@@ -206,7 +254,7 @@ a{color:inherit;text-decoration:none}
 
 .mini__row{display:flex;justify-content:space-between;font-size:13px}
 .muted{color:var(--muted)}
-.mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; word-break:break-all}
+.mono{font-family:ui-monospace, Menlo, Consolas, monospace; word-break:break-all}
 
 /* Sections */
 .section{padding:22px 0}
@@ -235,11 +283,8 @@ input,select{
   min-width:260px;
 }
 
-/* Resources grouped sections */
-.resourcegrid{
-  display:grid;
-  gap:16px;
-}
+/* Resources */
+.resourcegrid{display:grid;gap:16px}
 
 .resource-section{
   border:1px solid var(--border);
@@ -267,25 +312,11 @@ input,select{
   background:rgba(255,255,255,.03);
 }
 
-.resource-item:hover{
-  background:rgba(255,255,255,.05);
-}
+.resource-item:hover{background:rgba(255,255,255,.05)}
+.resource-item__name{font-weight:900;margin-bottom:6px;font-size:22px}
+.resource-item__link{color:var(--muted);font-size:14px}
 
-.resource-item__name{
-  font-weight:900;
-  margin-bottom:6px;
-  font-size:22px;
-}
-
-.resource-item__link{
-  color:var(--muted);
-  font-size:14px;
-}
-
-/* Bullets + footer */
-.bullets{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-.bullets li{margin:6px 0}
-
+/* Footer */
 .footer{
   display:flex;
   justify-content:space-between;
@@ -308,46 +339,4 @@ input,select{
   .grid{grid-template-columns:1fr}
   .grid--2{grid-template-columns:1fr}
   input,select{min-width:220px}
-}
-
-/* ==========================
-   Intro Video Overlay Styles
-   ========================== */
-
-.site-hidden{
-  opacity: 0;
-  pointer-events: none;
-}
-
-.site-visible{
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 600ms ease;
-}
-
-.intro-overlay{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #000;
-  display: grid;
-  place-items: center;
-  opacity: 1;
-  transition: opacity 700ms ease;
-}
-
-.intro-video{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.intro-skip{
-  position: absolute;
-  right: 18px;
-  top: 18px;
-}
-
-.intro-hide{
-  opacity: 0;
 }
