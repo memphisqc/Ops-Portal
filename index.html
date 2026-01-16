@@ -200,33 +200,260 @@
     </div>
   </section>
 
-  <!-- UPDATES -->
-  <section class="section" id="updates">
-    <div class="section__head">
-      <h2 class="section__title">Updates</h2>
-      <p class="section__desc">Simple notes so users trust the portal.</p>
-    </div>
+ <!-- RESOURCES -->
+<section class="section" id="tools">
+  <div class="section__head">
+    <h2 class="section__title">Resources</h2>
+    <p class="section__desc">Search + filter resources.</p>
+  </div>
 
-    <div class="grid grid--2">
-      <article class="card">
-        <h3 class="card__title">Release Notes</h3>
-        <ul class="bullets">
-          <li>New Ops Portal layout</li>
-          <li>Logo in header + watermark hero background</li>
-          <li>Theme toggle</li>
-        </ul>
-      </article>
+  <div class="toolbar">
+    <input class="input" id="searchInput" type="search" placeholder="Search resources…" />
+    <select class="select" id="categorySelect">
+      <option value="all">All</option>
+      <option value="tracking">Package/Container Tracking</option>
+      <option value="operations">Operations</option>
+      <option value="safety">Safety</option>
+      <option value="employee">Employee Links</option>
+    </select>
+  </div>
 
-      <article class="card">
-        <h3 class="card__title">Planned</h3>
-        <ul class="bullets">
-          <li>Replace placeholders with real links</li>
-          <li>Role-based sections</li>
-          <li>Power BI embeds</li>
-        </ul>
-      </article>
-    </div>
-  </section>
+  <div class="tilegrid" id="tileGrid">
+
+    <!-- Package/Container Tracking -->
+    <a class="tile" href="https://myapps-atl03.secure.fedex.com/eShipmentGUI/MenuPage.iface" target="_blank" rel="noopener" data-category="tracking">
+      <div class="tile__top">
+        <span class="tile__icon">📦</span>
+        <span class="badge badge--soft">Package/Container Tracking</span>
+      </div>
+      <div class="tile__title">eOps</div>
+      <div class="tile__sub mono">https://myapps-atl03.secure.fedex.com/eShipmentGUI/MenuPage.iface</div>
+    </a>
+
+    <a class="tile" href="https://mission.ebs.fedex.com/mission/index.cfm" target="_blank" rel="noopener" data-category="tracking">
+      <div class="tile__top">
+        <span class="tile__icon">🛰️</span>
+        <span class="badge badge--soft">Package/Container Tracking</span>
+      </div>
+      <div class="tile__title">mission</div>
+      <div class="tile__sub mono">https://mission.ebs.fedex.com/mission/index.cfm</div>
+    </a>
+
+    <a class="tile" href="https://myapps-atl03.secure.fedex.com/eShipmentGUI/DisplayLinkHandler?id=5" target="_blank" rel="noopener" data-category="tracking">
+      <div class="tile__top">
+        <span class="tile__icon">🔎</span>
+        <span class="badge badge--soft">Package/Container Tracking</span>
+      </div>
+      <div class="tile__title">CONS Explorer/Report</div>
+      <div class="tile__sub mono">https://myapps-atl03.secure.fedex.com/eShipmentGUI/DisplayLinkHandler?id=5</div>
+    </a>
+
+    <a class="tile" href="https://myapps-atl02.secure.fedex.com/ULDWebApp/" target="_blank" rel="noopener" data-category="tracking">
+      <div class="tile__top">
+        <span class="tile__icon">🧳</span>
+        <span class="badge badge--soft">Package/Container Tracking</span>
+      </div>
+      <div class="tile__title">ULD</div>
+      <div class="tile__sub mono">https://myapps-atl02.secure.fedex.com/ULDWebApp/</div>
+    </a>
+
+    <a class="tile" href="https://emars-tssrealtime-las.g.fedex.com:8001/spotfire/wp/analysis?file=/DRE/DREReport/AnalysisFiles/DREReport&waid=a-O0Io0BxEeZKcWwcD4KN-12234666ec4lBs&wavid=0" target="_blank" rel="noopener" data-category="tracking">
+      <div class="tile__top">
+        <span class="tile__icon">📈</span>
+        <span class="badge badge--soft">Package/Container Tracking</span>
+      </div>
+      <div class="tile__title">DRE Tool</div>
+      <div class="tile__sub mono">https://emars-tssrealtime-las.g.fedex.com:8001/spotfire/wp/analysis?file=/DRE/DREReport/AnalysisFiles/DREReport&waid=a-O0Io0BxEeZKcWwcD4KN-12234666ec4lBs&wavid=0</div>
+    </a>
+
+    <a class="tile" href="https://ils.app.paas.fedex.com/ils/" target="_blank" rel="noopener" data-category="tracking">
+      <div class="tile__top">
+        <span class="tile__icon">🧾</span>
+        <span class="badge badge--soft">Package/Container Tracking</span>
+      </div>
+      <div class="tile__title">ILS</div>
+      <div class="tile__sub mono">https://ils.app.paas.fedex.com/ils/</div>
+    </a>
+
+    <a class="tile" href="https://eko.fedex.com/en/publications/ess.html" target="_blank" rel="noopener" data-category="tracking">
+      <div class="tile__top">
+        <span class="tile__icon">📚</span>
+        <span class="badge badge--soft">Package/Container Tracking</span>
+      </div>
+      <div class="tile__title">Scanning</div>
+      <div class="tile__sub mono">https://eko.fedex.com/en/publications/ess.html</div>
+    </a>
+
+    <a class="tile" href="https://secom.prod.fedex.com/iot-cp/home" target="_blank" rel="noopener" data-category="tracking">
+      <div class="tile__top">
+        <span class="tile__icon">🛡️</span>
+        <span class="badge badge--soft">Package/Container Tracking</span>
+      </div>
+      <div class="tile__title">SAVP</div>
+      <div class="tile__sub mono">https://secom.prod.fedex.com/iot-cp/home</div>
+    </a>
+
+    <a class="tile" href="https://dpt-ui-dpt.fxi-001.fxi-prod.az.fxei.fedex.com/dashboard" target="_blank" rel="noopener" data-category="tracking">
+      <div class="tile__top">
+        <span class="tile__icon">📊</span>
+        <span class="badge badge--soft">Package/Container Tracking</span>
+      </div>
+      <div class="tile__title">DPT</div>
+      <div class="tile__sub mono">https://dpt-ui-dpt.fxi-001.fxi-prod.az.fxei.fedex.com/dashboard</div>
+    </a>
+
+
+    <!-- Operations -->
+    <a class="tile" href="https://annie.mis.fedex.com/app/" target="_blank" rel="noopener" data-category="operations">
+      <div class="tile__top">
+        <span class="tile__icon">🧠</span>
+        <span class="badge badge--soft">Operations</span>
+      </div>
+      <div class="tile__title">Annie</div>
+      <div class="tile__sub mono">https://annie.mis.fedex.com/app/</div>
+    </a>
+
+    <a class="tile" href="https://myfedex.sharepoint.com/sites/tech_ops/SitePages/Workbench.aspx" target="_blank" rel="noopener" data-category="operations">
+      <div class="tile__top">
+        <span class="tile__icon">🛠️</span>
+        <span class="badge badge--soft">Operations</span>
+      </div>
+      <div class="tile__title">Workbench</div>
+      <div class="tile__sub mono">https://myfedex.sharepoint.com/sites/tech_ops/SitePages/Workbench.aspx</div>
+    </a>
+
+    <a class="tile" href="https://lp-atl-tripvcom.prod.cloud.fedex.com:8443/trip/" target="_blank" rel="noopener" data-category="operations">
+      <div class="tile__top">
+        <span class="tile__icon">✈️</span>
+        <span class="badge badge--soft">Operations</span>
+      </div>
+      <div class="tile__title">TRIPS</div>
+      <div class="tile__sub mono">https://lp-atl-tripvcom.prod.cloud.fedex.com:8443/trip/</div>
+    </a>
+
+    <a class="tile" href="https://aoc-memhub-s1.corp.ds.fedex.com/autorollover/" target="_blank" rel="noopener" data-category="operations">
+      <div class="tile__top">
+        <span class="tile__icon">🔁</span>
+        <span class="badge badge--soft">Operations</span>
+      </div>
+      <div class="tile__title">Autorollover</div>
+      <div class="tile__sub mono">https://aoc-memhub-s1.corp.ds.fedex.com/autorollover/</div>
+    </a>
+
+    <a class="tile" href="https://aoc-memhub-s1.corp.ds.fedex.com/apps/utrams/" target="_blank" rel="noopener" data-category="operations">
+      <div class="tile__top">
+        <span class="tile__icon">📎</span>
+        <span class="badge badge--soft">Operations</span>
+      </div>
+      <div class="tile__title">UTRAMS</div>
+      <div class="tile__sub mono">https://aoc-memhub-s1.corp.ds.fedex.com/apps/utrams/</div>
+    </a>
+
+    <a class="tile" href="https://rsope.gpe.fedex.com/rsope/MSL/tools_reports/MEMH_TRAMS.htm" target="_blank" rel="noopener" data-category="operations">
+      <div class="tile__top">
+        <span class="tile__icon">📄</span>
+        <span class="badge badge--soft">Operations</span>
+      </div>
+      <div class="tile__title">GS-MEM</div>
+      <div class="tile__sub mono">https://rsope.gpe.fedex.com/rsope/MSL/tools_reports/MEMH_TRAMS.htm</div>
+    </a>
+
+    <a class="tile" href="https://rsope.gpe.fedex.com/rsope/" target="_blank" rel="noopener" data-category="operations">
+      <div class="tile__top">
+        <span class="tile__icon">🧭</span>
+        <span class="badge badge--soft">Operations</span>
+      </div>
+      <div class="tile__title">RSOPE</div>
+      <div class="tile__sub mono">https://rsope.gpe.fedex.com/rsope/</div>
+    </a>
+
+    <a class="tile" href="https://splits.prod.cloud.fedex.com/app/" target="_blank" rel="noopener" data-category="operations">
+      <div class="tile__top">
+        <span class="tile__icon">🧩</span>
+        <span class="badge badge--soft">Operations</span>
+      </div>
+      <div class="tile__title">SPLITS</div>
+      <div class="tile__sub mono">https://splits.prod.cloud.fedex.com/app/</div>
+    </a>
+
+    <a class="tile" href="https://mxsupport.prod.cloud.fedex.com/gatesheet/index.jsp" target="_blank" rel="noopener" data-category="operations">
+      <div class="tile__top">
+        <span class="tile__icon">🚪</span>
+        <span class="badge badge--soft">Operations</span>
+      </div>
+      <div class="tile__title">Gatesheet</div>
+      <div class="tile__sub mono">https://mxsupport.prod.cloud.fedex.com/gatesheet/index.jsp</div>
+    </a>
+
+
+    <!-- Safety -->
+    <a class="tile" href="http://safety.fedex.com/" target="_blank" rel="noopener" data-category="safety">
+      <div class="tile__top">
+        <span class="tile__icon">🦺</span>
+        <span class="badge badge--soft">Safety</span>
+      </div>
+      <div class="tile__title">Safety Manual</div>
+      <div class="tile__sub mono">http://safety.fedex.com/</div>
+    </a>
+
+
+    <!-- Employee Links -->
+    <a class="tile" href="https://cust01-prd05-ath01.prd.mykronos.com/authn/?realm=/fedexcorporate_prd_01&service=14991CustomerIDPChain&goto=https%3A%2F%2Ffedexcorporate-sso.prd.mykronos.com%3A443%2Fwfd%2Fhome%3FtenantId%3Dfedexcorporate_prd_01&authIndexType=service&authIndexValue=14991CustomerIDPChain&responsekey=6579c72e-010d-46e3-ab34-59f5ae3c8ceb&error=false" target="_blank" rel="noopener" data-category="employee">
+      <div class="tile__top">
+        <span class="tile__icon">⏱️</span>
+        <span class="badge badge--soft">Employee Links</span>
+      </div>
+      <div class="tile__title">Dimensions</div>
+      <div class="tile__sub mono">https://cust01-prd05-ath01.prd.mykronos.com/authn/?realm=/fedexcorporate_prd_01&service=14991CustomerIDPChain&goto=...</div>
+    </a>
+
+    <a class="tile" href="https://www.myworkday.com/fedex/d/home.htmld" target="_blank" rel="noopener" data-category="employee">
+      <div class="tile__top">
+        <span class="tile__icon">🧑‍💼</span>
+        <span class="badge badge--soft">Employee Links</span>
+      </div>
+      <div class="tile__title">Workday</div>
+      <div class="tile__sub mono">https://www.myworkday.com/fedex/d/home.htmld</div>
+    </a>
+
+    <a class="tile" href="https://fedexcor.lms.sapsf.com/learning/user/personal/landOnPortalHome.do?fromSF=Y&fromDeepLink=true&pageID=" target="_blank" rel="noopener" data-category="employee">
+      <div class="tile__top">
+        <span class="tile__icon">🎓</span>
+        <span class="badge badge--soft">Employee Links</span>
+      </div>
+      <div class="tile__title">FLC</div>
+      <div class="tile__sub mono">https://fedexcor.lms.sapsf.com/learning/user/personal/landOnPortalHome.do?fromSF=Y&fromDeepLink=true&pageID=</div>
+    </a>
+
+    <a class="tile" href="https://geishr.gpe.fedex.com/eacknowledge/index.cfm" target="_blank" rel="noopener" data-category="employee">
+      <div class="tile__top">
+        <span class="tile__icon">✅</span>
+        <span class="badge badge--soft">Employee Links</span>
+      </div>
+      <div class="tile__title">EACK</div>
+      <div class="tile__sub mono">https://geishr.gpe.fedex.com/eacknowledge/index.cfm</div>
+    </a>
+
+    <a class="tile" href="https://image.prod.fedex.com/identityiq/home.jsf" target="_blank" rel="noopener" data-category="employee">
+      <div class="tile__top">
+        <span class="tile__icon">🪪</span>
+        <span class="badge badge--soft">Employee Links</span>
+      </div>
+      <div class="tile__title">IMAGE</div>
+      <div class="tile__sub mono">https://image.prod.fedex.com/identityiq/home.jsf</div>
+    </a>
+
+    <a class="tile" href="https://aoc-memhub-s1.corp.ds.fedex.com/vacation_scheduler/login_page.asp" target="_blank" rel="noopener" data-category="employee">
+      <div class="tile__top">
+        <span class="tile__icon">🏖️</span>
+        <span class="badge badge--soft">Employee Links</span>
+      </div>
+      <div class="tile__title">Vacation</div>
+      <div class="tile__sub mono">https://aoc-memhub-s1.corp.ds.fedex.com/vacation_scheduler/login_page.asp</div>
+    </a>
+
+  </div>
+</section>
 
   <footer class="footer">
     <span class="muted">Ops Portal • Internal operations use</span>
@@ -238,4 +465,5 @@
 <script src="app.js"></script>
 </body>
 </html>
+
 
