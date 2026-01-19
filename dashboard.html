@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ops Portal | Dashboard</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container topbar__inner">
+
+    <div class="brand">
+      <div class="brand__mark">
+        <img src="logo.png" alt="Ops Portal Logo">
+      </div>
+      <div class="brand__text">
+        <div class="brand__title">Ops Portal</div>
+        <div class="brand__sub">Operations Dashboard</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="nav__link" href="index.html">Overview</a>
+      <a class="nav__link active" href="dashboard.html">Dashboard</a>
+      <a class="nav__link" href="index.html#tools">Tools</a>
+      <a class="nav__link" href="index.html#updates">Updates</a>
+    </nav>
+
+    <button class="btn btn--ghost" id="themeToggle">Toggle Theme</button>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="section">
+    <div class="section__head">
+      <h1 class="section__title">Operational Dashboard</h1>
+      <p class="section__desc">
+        Live Power BI view of the network.
+      </p>
+    </div>
+
+    <div class="card map-card">
+      <iframe
+        title="Power BI Network Alt Map"
+        src="https://app.powerbi.com/links/pT8KMKzYEm?ctid=b945c813-dce6-41f8-8457-5a12c2fe15bf&pbi_source=linkShare&bookmarkGuid=b0238603-7bf2-47ab-af78-54083de89207"
+        allowfullscreen="true">
+      </iframe>
+    </div>
+  </section>
+
+  <footer class="footer">
+    Ops Portal • Internal Operations Use
+  </footer>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
