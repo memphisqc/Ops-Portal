@@ -23,14 +23,15 @@
       </div>
     </div>
 
-<nav class="nav">
-  <a class="nav__link" href="index.html#home">Overview</a>
-  <a class="nav__link active" href="dashboard.html">Dashboard</a>
-  <a class="nav__link" href="index.html#resources">Resources</a>
-  <a class="nav__link" href="index.html#updates">Updates</a>
-</nav>
+    <!-- Updated nav to match your single-file Home/Resources setup -->
+    <nav class="nav">
+      <a class="nav__link" href="index.html#home">Overview</a>
+      <a class="nav__link active" href="dashboard.html">Dashboard</a>
+      <a class="nav__link" href="index.html#resources">Resources</a>
+      <a class="nav__link" href="index.html#updates">Updates</a>
+    </nav>
 
-    <button class="btn btn--ghost" id="themeToggle">Toggle Theme</button>
+    <button class="btn btn--ghost" id="themeToggle" type="button">Toggle Theme</button>
   </div>
 </header>
 
@@ -40,15 +41,31 @@
     <div class="section__head">
       <h1 class="section__title">Operational Dashboard</h1>
       <p class="section__desc">
-        Live Power BI view of the network.
+        Embedded Power App view (stays inside this site).
       </p>
     </div>
 
-   <div class="card">
-  <a class="btn" href="https://app.powerbi.com/groups/me/reports/05704b39-30f4-4d98-b312-7af2ec136f2c/78df687816b3079253ee?ctid=b945c813-dce6-41f8-8457-5a12c2fe15bf&experience=power-bi&bookmarkGuid=b0238603-7bf2-47ab-af78-54083de89207" target="_blank">
-    Open Alt Map Power Bi Dashboard
-  </a>
-</div>
+    <!-- Embedded Power App -->
+    <div class="card map-card">
+      <iframe
+        src="https://apps.powerapps.com/play/e/default-b945c813-dce6-41f8-8457-5a12c2fe15bf/a/eb7d1ceb-b2bf-41f7-a7d3-d5ee7edb7255?tenantId=b945c813-dce6-41f8-8457-5a12c2fe15bf&hint=6f0127be-e022-42d1-a09a-da30f24d7fe7&source=portal&hidenavbar=true"
+        style="width:100%;height:100%;border:0;"
+        allow="geolocation; microphone; camera"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Power App"
+      ></iframe>
+    </div>
+
+    <!-- Optional: keep a backup button under the embed -->
+    <div class="card" style="margin-top:12px;">
+      <a class="btn"
+         href="https://apps.powerapps.com/play/e/default-b945c813-dce6-41f8-8457-5a12c2fe15bf/a/eb7d1ceb-b2bf-41f7-a7d3-d5ee7edb7255?tenantId=b945c813-dce6-41f8-8457-5a12c2fe15bf&hint=6f0127be-e022-42d1-a09a-da30f24d7fe7"
+         target="_blank" rel="noopener">
+        Open Power App in New Tab (Backup)
+      </a>
+    </div>
+
   </section>
 
   <footer class="footer">
