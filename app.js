@@ -59,12 +59,12 @@
     lastUpdated.textContent = d.toLocaleString();
   }
 
-  // Search + filter (FIXED for grouped sections)
+  // ==========================
+  // Search + filter (Resources)
+  // ==========================
   const searchInput = document.getElementById("searchInput");
   const categorySelect = document.getElementById("categorySelect");
   const grid = document.getElementById("tileGrid");
-
-  if (!searchInput || !categorySelect || !grid) return;
 
   function norm(s) {
     return (s || "")
@@ -74,6 +74,8 @@
   }
 
   function applyFilters() {
+    if (!searchInput || !categorySelect || !grid) return;
+
     const q = norm(searchInput.value);
     const cat = categorySelect.value || "all";
 
@@ -108,8 +110,54 @@
     });
   }
 
-  searchInput.addEventListener("input", applyFilters);
-  categorySelect.addEventListener("change", applyFilters);
+  // Attach listeners only if Resources exists on this view
+  if (searchInput && categorySelect) {
+    searchInput.addEventListener("input", applyFilters);
+    categorySelect.addEventListener("change", applyFilters);
+  }
 
+  // ==========================
+  // Simple "page" routing
+  // Home vs Resources inside ONE html
+  // ==========================
+  const homePage = document.getElementById("homePage");
+  const resourcesPage = document.getElementById("resourcesPage");
+
+  function setActivePage(page) {
+    if (!homePage || !resourcesPage) return;
+
+    if (page === "resources") {
+      homePage.classList.remove("page--active");
+      resourcesPage.classList.add("page--active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      applyFilters();
+    } else {
+      resourcesPage.classList.remove("page--active");
+      homePage.classList.add("page--active");
+    }
+  }
+
+  function handleHashRoute() {
+    const hash = (window.location.hash || "").toLowerCase();
+
+    if (hash === "#resources") {
+      setActivePage("resources");
+      return;
+    }
+
+    // everything else lives on Home
+    setActivePage("home");
+
+    // allow normal section jumps on home
+    if (hash && hash !== "#home") {
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  window.addEventListener("hashchange", handleHashRoute);
+
+  // Initial run
+  handleHashRoute();
   applyFilters();
 })();
