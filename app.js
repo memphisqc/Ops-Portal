@@ -1,32 +1,40 @@
 (function () {
   const root = document.documentElement;
 
-  // ==========================
-  // Intro video (fade to site)
-  // ==========================
-  const introOverlay = document.getElementById("introOverlay");
-  const introVideo = document.getElementById("introVideo");
-  const skipIntro = document.getElementById("skipIntro");
-  const siteContent = document.getElementById("siteContent");
+// ==========================
+// Intro video (play once per session)
+// ==========================
+const introOverlay = document.getElementById("introOverlay");
+const introVideo = document.getElementById("introVideo");
+const skipIntro = document.getElementById("skipIntro");
+const siteContent = document.getElementById("siteContent");
 
-  function revealSiteWithFade() {
-    // Fade overlay out
-    if (introOverlay) {
-      introOverlay.classList.add("intro-hide");
-      // After fade, remove overlay from layout
-      setTimeout(() => {
-        introOverlay.style.display = "none";
-      }, 700);
-    }
-
-    // Fade site in
-    if (siteContent) {
-      siteContent.classList.remove("site-hidden");
-      siteContent.classList.add("site-visible");
-    }
+function revealSiteWithFade() {
+  if (introOverlay) {
+    introOverlay.classList.add("intro-hide");
+    setTimeout(() => {
+      introOverlay.style.display = "none";
+    }, 700);
   }
 
-  // If autoplay is blocked, show the site anyway after a moment
+  if (siteContent) {
+    siteContent.classList.remove("site-hidden");
+    siteContent.classList.add("site-visible");
+  }
+
+  // Mark intro as played for this session
+  sessionStorage.setItem("portal_intro_played", "true");
+}
+
+// If intro already played this session, skip it
+if (sessionStorage.getItem("portal_intro_played") === "true") {
+  if (introOverlay) introOverlay.style.display = "none";
+  if (siteContent) {
+    siteContent.classList.remove("site-hidden");
+    siteContent.classList.add("site-visible");
+  }
+} else {
+  // Normal intro behavior
   setTimeout(() => {
     if (introVideo && introVideo.paused && introVideo.currentTime === 0) {
       revealSiteWithFade();
@@ -39,6 +47,8 @@
     try { introVideo?.pause(); } catch (e) {}
     revealSiteWithFade();
   });
+}
+
 
   // Theme toggle
   const themeToggle = document.getElementById("themeToggle");
@@ -161,3 +171,4 @@
   handleHashRoute();
   applyFilters();
 })();
+
