@@ -362,11 +362,12 @@ input,select{
   border-radius:12px;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* Single-file "pages" (Home vs Resources) */
+.page { display: none; }
+.page.page--active { display: block; }
 
-#resources {
-  scroll-margin-top: 90px;
-}
+/* Nice scrolling with sticky header */
+html { scroll-behavior: smooth; }
+#home, #dashboard, #updates, #resources { scroll-margin-top: 90px; }
+
 
