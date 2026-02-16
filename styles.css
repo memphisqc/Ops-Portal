@@ -361,3 +361,12 @@ input,select{
   background:rgba(255,255,255,.06);
   border-radius:12px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+#resources {
+  scroll-margin-top: 90px;
+}
+
