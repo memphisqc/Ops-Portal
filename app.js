@@ -35,15 +35,12 @@
     }
   }
 
-  // Only run intro logic on pages that actually have the intro overlay (index.html)
   if (introOverlay && siteContent) {
     if (sessionStorage.getItem(INTRO_KEY) === "true") {
       showSiteImmediately();
     } else {
-      // Mark played immediately so it won't replay if you navigate away and back
       sessionStorage.setItem(INTRO_KEY, "true");
 
-      // If autoplay is blocked, show the site anyway after a moment
       setTimeout(() => {
         if (introVideo && introVideo.paused && introVideo.currentTime === 0) {
           revealSiteWithFade();
@@ -60,7 +57,7 @@
   }
 
   // ==========================
-  // Theme toggle (works on ALL pages)
+  // Theme toggle
   // ==========================
   const themeToggle = document.getElementById("themeToggle");
   const savedTheme = localStorage.getItem("portal_theme");
@@ -74,7 +71,7 @@
   });
 
   // ==========================
-  // Last updated (optional)
+  // Last updated
   // ==========================
   const lastUpdated = document.getElementById("lastUpdated");
   if (lastUpdated) {
@@ -94,7 +91,6 @@
   }
 
   function applyFilters() {
-    // If we're on a page without resources (dashboard.html), just skip
     if (!searchInput || !categorySelect || !grid) return;
 
     const q = norm(searchInput.value);
@@ -106,15 +102,15 @@
     items.forEach((item) => {
       const itemCat = item.getAttribute("data-category") || "all";
 
-      const titleEl = item.querySelector(".resource-item__name, .tile__title");
-      const linkEl = item.querySelector(".resource-item__link, .tile__sub");
+      const titleEl = item.querySelector(".resource-item__name");
+      const linkEl = item.querySelector(".resource-item__link");
 
       const title = norm(titleEl ? titleEl.textContent : "");
       const link = norm(linkEl ? linkEl.textContent : "");
 
       const matchCat = cat === "all" || itemCat === cat;
-
       let matchQ = true;
+
       if (q) {
         matchQ = title.startsWith(q) || title.includes(q) || link.includes(q);
       }
@@ -122,7 +118,6 @@
       item.style.display = matchCat && matchQ ? "" : "none";
     });
 
-    // Hide whole sections with zero visible items
     sections.forEach((section) => {
       const anyVisible = Array.from(section.querySelectorAll(".tile"))
         .some((it) => it.style.display !== "none");
@@ -134,13 +129,13 @@
   if (categorySelect) categorySelect.addEventListener("change", applyFilters);
 
   // ==========================
-  // Single-file "Pages" routing (Home vs Resources) - index.html only
+  // Single-file page routing
   // ==========================
   const homePage = document.getElementById("homePage");
   const resourcesPage = document.getElementById("resourcesPage");
 
   function setActivePage(which) {
-    if (!homePage || !resourcesPage) return; // not on index.html
+    if (!homePage || !resourcesPage) return;
 
     if (which === "resources") {
       homePage.classList.remove("page--active");
@@ -154,7 +149,7 @@
   }
 
   function handleHashRoute() {
-    if (!homePage || !resourcesPage) return; // not on index.html
+    if (!homePage || !resourcesPage) return;
 
     const hash = (window.location.hash || "").toLowerCase();
 
@@ -163,10 +158,8 @@
       return;
     }
 
-    // Everything else is home
     setActivePage("home");
 
-    // Smooth scroll to sections on home (#home, #dashboard, #updates)
     if (hash) {
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -174,8 +167,38 @@
   }
 
   window.addEventListener("hashchange", handleHashRoute);
-
-  // initial run
   handleHashRoute();
   applyFilters();
+
+  // ==========================
+  // Auto-add today's date to Feature Request email
+  // ==========================
+  const featureLink = document.getElementById("featureRequestLink");
+
+  if (featureLink) {
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, "0");
+    const dd = String(d.getDate()).padStart(2, "0");
+    const today = `${yyyy}-${mm}-${dd}`;
+
+    const subject = `PORTAL Request - New Tool or Feature (${today})`;
+
+    const body =
+`List the item or feature you are wanting to add to the site:
+
+Please describe in detail what this feature or item is and why it is useful:
+
+Name:
+Employee Number:
+`;
+
+    const mailto =
+      "mailto:quinn.cox@fedex.com" +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+
+    featureLink.setAttribute("href", mailto);
+  }
+
 })();
