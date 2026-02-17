@@ -226,15 +226,38 @@
           </div>
 <!-- Feature Request Button -->
 <div style="margin-top: 30px; text-align: center;">
-  <a
-    class="btn"
-    id="featureRequestLink"
-    href="mailto:quinn.cox@fedex.com"
-  >
+  <button class="btn" onclick="openFeatureRequest()">
     Want to add a tool or feature to this website? Click here!
-  </a>
+  </button>
 </div>
 
+<script>
+function openFeatureRequest() {
+  const d = new Date();
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  const today = `${yyyy}-${mm}-${dd}`;
+
+  const subject = encodeURIComponent(
+    `PORTAL Request - New Tool or Feature (${today})`
+  );
+
+  const body = encodeURIComponent(
+`List the item or feature you are wanting to add to the site:
+
+Please describe in detail what this feature or item is and why it is useful:
+
+Name:
+Employee Number:
+`
+  );
+
+  window.location.href =
+    `mailto:quinn.cox@fedex.com?subject=${subject}&body=${body}`;
+}
+</script>
+          
         </section>
 
         <footer class="footer">
@@ -428,6 +451,7 @@
   <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
