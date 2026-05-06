@@ -23,7 +23,6 @@
       </div>
     </div>
 
-    <!-- Updated nav to match your single-file Home/Resources setup -->
     <nav class="nav">
       <a class="nav__link" href="index.html#home">Overview</a>
       <a class="nav__link active" href="dashboard.html">Dashboard</a>
@@ -41,12 +40,33 @@
     <div class="section__head">
       <h1 class="section__title">Operational Dashboard</h1>
       <p class="section__desc">
-        Embedded Power App view (stays inside this site).
+        Embedded Sort Calendar and Power App views stay inside this site.
       </p>
     </div>
 
-    <!-- Embedded Power App -->
+    <!-- Embedded Sort Calendar -->
     <div class="card map-card">
+      <iframe
+        src="https://aoc-memhub-s1.corp.ds.fedex.com/SortCal/"
+        style="width:100%;height:100%;border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Sort Calendar"
+      ></iframe>
+    </div>
+
+    <!-- Backup button for Sort Calendar -->
+    <div class="card" style="margin-top:12px;">
+      <a class="btn"
+         href="https://aoc-memhub-s1.corp.ds.fedex.com/SortCal/"
+         target="_blank"
+         rel="noopener">
+        Open Sort Calendar in New Tab (Backup)
+      </a>
+    </div>
+
+    <!-- Embedded Power App -->
+    <div class="card map-card" style="margin-top:24px;">
       <iframe
         src="https://apps.powerapps.com/play/e/default-b945c813-dce6-41f8-8457-5a12c2fe15bf/a/12d17427-4b26-406b-ad7f-d01c1e8e7f16?tenantId=b945c813-dce6-41f8-8457-5a12c2fe15bf&hint=58f55da3-f16c-4823-bfce-3bf784c024f6&sourcetime=1778103611706"
         style="width:100%;height:100%;border:0;"
@@ -57,11 +77,12 @@
       ></iframe>
     </div>
 
-    <!-- Optional: keep a backup button under the embed -->
+    <!-- Backup button for Power App -->
     <div class="card" style="margin-top:12px;">
       <a class="btn"
          href="https://apps.powerapps.com/play/e/default-b945c813-dce6-41f8-8457-5a12c2fe15bf/a/12d17427-4b26-406b-ad7f-d01c1e8e7f16?tenantId=b945c813-dce6-41f8-8457-5a12c2fe15bf&hint=58f55da3-f16c-4823-bfce-3bf784c024f6&sourcetime=1778103611706"
-         target="_blank" rel="noopener">
+         target="_blank"
+         rel="noopener">
         Open Power App in New Tab (Backup)
       </a>
     </div>
